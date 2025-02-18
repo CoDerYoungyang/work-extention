@@ -1,0 +1,15 @@
+{
+  "manifest_version": 3,
+  "name": "牛马小助手",
+  "version": "1.0",
+  "description": "上下班计时器和工资计算器",
+  "permissions": [
+    "storage"
+  ],
+  "host_permissions": [
+    "https://api.apihubs.cn/*"
+  ],
+  "action": {
+    "default_popup": "popup.html"
+  }
+} 

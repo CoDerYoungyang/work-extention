@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>牛马小助手</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <div class="container">
+    <h2>牛马小助手</h2>
+    <p class="quote" id="dailyQuote"></p>
+    
+    <!-- 配置面板 - 默认隐藏 -->
+    <div class="settings hidden" id="settingsPanel">
+      <div class="input-group">
+        <label for="workStartTime">上班时间</label>
+        <input type="time" id="workStartTime" placeholder="例如：09:00">
+        <small class="hint">请输入24小时制时间</small>
+      </div>
+
+      <div class="input-group">
+        <label for="workEndTime">下班时间</label>
+        <input type="time" id="workEndTime" placeholder="例如：18:00">
+        <small class="hint">请输入24小时制时间</small>
+      </div>
+
+      <div class="input-group">
+        <label for="breakStartTime">午休开始时间</label>
+        <input type="time" id="breakStartTime" placeholder="例如：12:00">
+        <small class="hint">不设置午休可不填</small>
+      </div>
+
+      <div class="input-group">
+        <label for="breakEndTime">午休结束时间</label>
+        <input type="time" id="breakEndTime" placeholder="例如：13:00">
+        <small class="hint">不设置午休可不填</small>
+      </div>
+
+      <div class="input-group">
+        <label for="monthlySalary">月薪（元）</label>
+        <input type="number" id="monthlySalary" placeholder="例如：10000" min="0" step="100">
+        <small class="hint">请输入税前工资总额</small>
+      </div>
+
+      <div class="input-group">
+        <label for="workDaysPerMonth">月工作天数</label>
+        <input type="number" id="workDaysPerMonth" placeholder="例如：22" min="1" max="31" step="1">
+        <small class="hint">一般为21-23天</small>
+      </div>
+
+      <button id="saveSettings">保存设置</button>
+    </div>
+
+    <!-- 未配置时的提示 -->
+    <div class="no-settings-tip hidden" id="noSettingsTip">
+      <p>👋 欢迎使用牛马小助手</p>
+      <p>请先进行工作时间和薪资设置</p>
+      <button id="showSettings">开始设置</button>
+    </div>
+
+    <!-- 显示信息区域 -->
+    <div class="info hidden" id="infoPanel">
+      <div class="countdown">
+        <h3>下班倒计时</h3>
+        <p id="timeLeft">--:--</p>
+      </div>
+
+      <!-- 新增节假日倒计时 -->
+      <div class="holiday-countdown">
+        <h3>距离<span id="nextHolidayName">下个假期</span>还有</h3>
+        <p id="holidayCountdown">--天</p>
+      </div>
+
+      <div class="salary-progress">
+        <h3>今日工资进度</h3>
+        <div class="progress-bar">
+          <div id="progress" class="progress"></div>
+        </div>
+        <p id="earnedToday">￥0.00</p>
+      </div>
+      
+      <button id="editSettings" class="secondary-button">修改设置</button>
+    </div>
+  </div>
+  <script src="popup.js"></script>
+</body>
+</html> 
